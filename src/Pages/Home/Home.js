@@ -1,7 +1,10 @@
 import React from 'react';
-import Destinations from '../Destinations/Destinations';
+import About from './About/About';
 import Banner from './Banner/Banner';
+import Destinations from './Destinations/Destinations';
 import Services from './Services/Services';
+import Stats from './Stats/Stats';
+
 
 const Home = () => {
     return (
@@ -9,6 +12,8 @@ const Home = () => {
             <Banner></Banner>
             <Services></Services>
             <Destinations></Destinations>
+            <Stats></Stats>
+            <About></About>
         </div>
     );
 };

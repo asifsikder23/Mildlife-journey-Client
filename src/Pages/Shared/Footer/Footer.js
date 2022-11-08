@@ -7,16 +7,15 @@ const Footer = () => {
       <footer className="footer p-10 bg-slate-700 text-white">
         <div>
           <span className="footer-title">Services</span>
-          <a href="/" className="link link-hover">Hotel</a>
+          <a href="/" className="link link-hover">Gallery</a>
           <a href="/" className="link link-hover">Booking</a>
           <a href="/" className="link link-hover">Places</a>
-          <a href="/" className="link link-hover">Advertisement</a>
+          <a href="/" className="link link-hover">Packages</a>
         </div>
         <div>
           <span className="footer-title">Company</span>
-          <a href="/" className="link link-hover">About us</a>
+          <a href="#about" className="link link-hover">About me</a>
           <a href="/" className="link link-hover">Contact</a>
-          <a href="/" className="link link-hover">Jobs</a>
           <a href="/" className="link link-hover">Press kit</a>
         </div>
         <div>
@@ -30,8 +29,8 @@ const Footer = () => {
         <div className="items-center grid-flow-col">
           <img className="w-28" src={logo} alt="" />
           <p>
-            Mildlife Journey. <br />
-            Providing reliable tech since 2020
+            Mildlife Journey <br />
+            Providing reliable tech since 2022
           </p>
         </div>
         <div className="md:place-self-center md:justify-self-end">

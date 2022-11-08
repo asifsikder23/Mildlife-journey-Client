@@ -7,7 +7,7 @@ const Services = () => {
   return (
     <div>
       <div>
-        <p className="text-center text-[#FF3811] font-bold text-xl mt-32">
+        <p className="text-center text-[#FF3811] font-bold text-xl mt-10 md:mt-20">
           Packages
         </p>
         <p className="text-5xl font-bold text-center mt-5">Most Desire Packages</p>

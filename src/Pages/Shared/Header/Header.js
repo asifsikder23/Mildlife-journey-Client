@@ -9,13 +9,10 @@ const Header = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li className="font-semibold">
-            <Link to={"/"}>About</Link>
-          </li>
-          <li className="font-semibold">
             <Link to={"/packages"}>Packages</Link>
           </li>
           <li className="font-semibold">
-            <Link to={"/"}>Blog</Link>
+            <Link to={"/blog"}>Blog</Link>
           </li>
           <li className="font-semibold">
             <Link to={"/contact"}>Contact</Link>
@@ -53,7 +50,7 @@ const Header = () => {
           <Link to={'/'} className="text-2xl font-bold">
           <div className="flex items-center gap-4">
           <div>
-          <img className="h-14 w-14" src={logo} alt="" />
+          <img className="h-14 w-14 invisible md:visible" src={logo} alt="" />
           </div>
           <div>
           <p>MildLife Journey</p>
@@ -67,7 +64,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a href="/" className="btn">Login</a>
+          <Link to={'/login'} className="btn">Login</Link>
         </div>
       </div>
     </div>
