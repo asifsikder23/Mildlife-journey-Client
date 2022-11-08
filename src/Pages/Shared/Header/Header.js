@@ -12,6 +12,9 @@ const Header = () => {
             <Link to={"/packages"}>Packages</Link>
           </li>
           <li className="font-semibold">
+            <Link to={"/gallery"}>Gallery</Link>
+          </li>
+          <li className="font-semibold">
             <Link to={"/blog"}>Blog</Link>
           </li>
           <li className="font-semibold">
