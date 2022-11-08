@@ -1,7 +1,9 @@
 import React from "react";
 import gif from '../../../src/assets/images/4575f6_ec4b613c4b6c4e9b89ad9c530b51c52a_mv2.gif'
+import useTitle from "../../hooks/useTitle";
 
 const Contact = () => {
+  useTitle('Contact')
   return (
     <div>
         <h2 className="text-center bg-slate-800 text-white text-4xl font-bold p-5">Contact Me</h2>

@@ -1,6 +1,78 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/UserContext";
+import Swal from 'sweetalert2'
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import useTitle from "../../hooks/useTitle";
+
 
 const Signup = () => {
+  useTitle('SignUp')
+  const {googleSignIn, gitSignIn, auth, createUser} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/";
+
+  const handleGoogleLogIn =()=>{
+    googleSignIn()
+    .then(result => {
+      const user = result.user;
+      
+      navigate(from,{replace:true})
+    })
+    .catch(error =>{
+      console.error('error: ', error)
+    })
+  }
+  const handleGitLogIn =()=>{
+    gitSignIn()
+    .then(result => {
+      const user = result.user;
+      
+      navigate(from,{replace:true})
+    })
+    .catch(error =>{
+      console.error('error: ', error)
+    })
+  }
+
+
+  const handleSignUp = event=>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+    .then(result =>{
+      const user = result.user;
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'SignUp Successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      updateUser(name, photo);
+      console.log(user);
+    })
+    .catch((err) => console.error(err));
+  }
+  const updateUser =(name, photo)=>{
+    updateProfile(auth.currentUser,{
+        displayName:name,
+        photoURL:photo
+    })
+    .then(()=>{
+        console.log('display name updated');
+    })
+    .catch(error=>{
+        console.error('error',error);
+    })
+}
   return (
     <div>
       <div className="">
@@ -17,12 +89,13 @@ const Signup = () => {
             </h2>
             <p className="text-sm text-center dark:text-gray-400">
               Already have account?
-              <a href="/login" className="focus:underline hover:underline ml-3">
+              <Link to={'/login'} className="focus:underline hover:underline ml-3">
                 Sign in here
-              </a>
+              </Link>
             </p>
             <div className="my-6 space-y-4">
               <button
+              onClick={handleGoogleLogIn}
                 aria-label="Login with Google"
                 type="button"
                 className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -37,6 +110,7 @@ const Signup = () => {
                 <p>SignUp with Google</p>
               </button>
               <button
+              onClick={handleGitLogIn}
                 aria-label="Login with GitHub"
                 role="button"
                 className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -57,6 +131,7 @@ const Signup = () => {
               <hr className="w-full dark:text-gray-400" />
             </div>
             <form
+            onSubmit={handleSignUp}
               action=""
               className="space-y-8 ng-untouched ng-pristine ng-valid"
             >
@@ -120,7 +195,7 @@ const Signup = () => {
                 </div>
               </div>
               <button
-                type="button"
+                type="submit"
                 className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900"
               >
                 Sign up

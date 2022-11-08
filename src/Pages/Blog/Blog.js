@@ -1,6 +1,8 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle";
 
 const Blog = () => {
+  useTitle('Blog')
   return (
     <div>
       <div className="container mx-auto flex flex-wrap py-6">

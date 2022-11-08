@@ -1,7 +1,77 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
+import { AuthContext } from "../../Context/UserContext";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitle('Login')
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/";
+  const {googleSignIn, gitSignIn} = useContext(AuthContext)
+  const [userEmail, setUserEmail] = useState("");
+
+
+  const handleGoogleLogIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        
+        navigate(from,{replace:true})
+      })
+      .catch((error) => {
+        console.error("error: ", error);
+      });
+  };
+  const handleGitLogIn = () => {
+    gitSignIn()
+      .then((result) => {
+        const user = result.user;
+        
+        navigate(from,{replace:true})
+      })
+      .catch((error) => {
+        console.error("error: ", error);
+      });
+  };
+  const {login} = useContext(AuthContext);
+  const handleLogIn = event =>{
+     event.preventDefault()
+     const form = event.target;
+     const email = form.email.value;
+     const password = form.password.value;
+
+     login(email, password)
+     .then(result =>{
+       const user = result.user;
+       console.log(user);
+       Swal.fire({
+         position: 'top-end',
+         icon: 'success',
+         title: 'Log in Success',
+         showConfirmButton: false,
+         timer: 1500
+       })
+     })
+     .catch(err =>{
+       console.error(err);
+       Swal.fire({
+         title: 'Are you Sick ???',
+         text: 'Wrong Email or Password.',
+         imageUrl: 'https://images.squarespace-cdn.com/content/v1/57b35bff46c3c465f6192fcc/1500384081174-1RVJTEAJNRH3T4EOG9KD/image-asset.gif',
+         imageWidth: 400,
+         imageHeight: 200,
+         imageAlt: 'Custom image',
+       })
+     })
+ }
+ const handleResetPass = () => {
+  if (!userEmail) {
+    Swal.fire("Please Enter Your Email");
+    return;
+  }
+};
   return (
       <div>
         <div className="hero-content flex-col lg:flex-row">
@@ -16,17 +86,18 @@ const Login = () => {
             <div className="w-full p-8  rounded-xl dark:bg-gray-900 dark:text-gray-100">
               <h1 className="text-2xl font-bold text-center">Login</h1>
               <form
+              onSubmit={handleLogIn}
                 action=""
                 className="space-y-6 ng-untouched ng-pristine ng-valid"
               >
                 <div className="space-y-1 text-sm">
-                  <label className="block dark:text-gray-400">Username</label>
+                  <label className="block dark:text-gray-400">Email</label>
                   <input
-                    type="text"
-                    name="username"
+                    type="email"
+                    name="email"
                     id="username"
-                    placeholder="Username"
-                    className="w-full px-4 py-3 rounded-md border dark:text-gray-100 focus:dark:border-violet-400"
+                    placeholder="email"
+                    className="w-full px-4 py-3 rounded-md border  focus:dark:border-violet-400 text-black"
                   />
                 </div>
                 <div className="space-y-1 text-sm">
@@ -36,10 +107,11 @@ const Login = () => {
                     name="password"
                     id="password"
                     placeholder="Password"
-                    className="w-full px-4 py-3 rounded-md dark:text-gray-100 focus:dark:border-violet-400"
+                    className="w-full px-4 py-3 rounded-md focus:dark:border-violet-400 text-black"
                   />
                   <div className="flex justify-end text-xs dark:text-gray-400">
-                    <a rel="noopener noreferrer" href="/">
+                    <a onClick={handleResetPass}
+                    rel="noopener noreferrer" href="/">
                       Forgot Password?
                     </a>
                   </div>
@@ -57,6 +129,7 @@ const Login = () => {
               </div>
               <div className="flex justify-center space-x-4">
                 <button
+                onClick={handleGoogleLogIn}
                   aria-label="Log in with Google"
                   className="p-3 rounded-sm"
                 >
@@ -69,6 +142,7 @@ const Login = () => {
                   </svg>
                 </button>
                 <button
+                onClick={handleGitLogIn}
                   aria-label="Log in with GitHub"
                   className="p-3 rounded-sm"
                 >

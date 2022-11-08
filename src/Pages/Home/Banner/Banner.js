@@ -5,6 +5,7 @@ import img3 from '../../../assets/images/header_frontpage_5.jpg'
 import img4 from '../../../assets/images/trusted-travel-explore-hero.jpg'
 
 const Banner = () => {
+ 
   return (
     <div>
       <div className="carousel w-full">

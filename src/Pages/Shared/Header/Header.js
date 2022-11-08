@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logo/mj logo.png'
+import { XMarkIcon } from '@heroicons/react/24/solid'
+import { AuthContext } from "../../../Context/UserContext";
 
 const Header = () => {
+  const {user, logOut} = useContext(AuthContext)
     const menuItems = (
         <>
           <li className="font-semibold">
@@ -67,8 +70,97 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to={'/login'} className="btn">Login</Link>
+          
+        <div className="dropdown dropdown-end">
+          {
+                  user ?
+            
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              
+              <div className="w-10 rounded-full">
+                    <img src={user.photoURL}/>
+              </div>
+            </label>
+                  
+                  :
+                  <Link to={'/login'} className="btn px-5">Log in</Link>
+              }
+
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-slate-900 text-white rounded-box w-52"
+            >
+              <li>
+              <a href="#my-modal-2">Profile</a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+              {
+                  user &&
+                  <button onClick={logOut}>log out</button>
+                  
+                    
+              }
+              
+              </li>
+            </ul>
+          </div>
         </div>
+          
+          {
+              user &&
+              <div className="modal" id="my-modal-2">
+            
+                      
+                  <div>
+                      <div className="modal-action">
+                          <a href="#" className="text-white">
+                          <XMarkIcon className="h-10 w-10 text-white"/>
+                          </a>
+                          </div>
+
+                    <section className="w-72 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
+                      
+
+                        <div className="mt-6 w-fit mx-auto ">
+                            {
+                              user?.photoURL &&
+                              <img className="rounded-full" src={user.photoURL}/>
+                            }
+                            
+                        </div>
+
+                        <div className="mt-8 ">
+                            {
+                              user?.displayName &&
+                              <h2 className="text-white font-bold text-2xl tracking-wide">{user.displayName}
+                            </h2>
+                            }
+                            {
+                              user?.email &&
+                              <p className="text-white">{user.email}</p>
+                            }
+                            
+                        </div>
+                        <p className="text-emerald-400 font-semibold mt-2.5" >
+                            Active
+                        </p>
+
+                        <div className="h-1 w-full bg-black mt-8 rounded-full">
+                            <div className="h-1 rounded-full w-4/5 bg-yellow-500 "></div>
+                        </div>
+                        <div className="mt-3 text-white text-sm">
+                            <span className="text-gray-400 font-semibold">Progress: </span>
+                            <span>40%</span>
+                        </div>
+
+                    </section>
+                      </div>
+          </div>
+           }
+        
       </div>
     </div>
   );

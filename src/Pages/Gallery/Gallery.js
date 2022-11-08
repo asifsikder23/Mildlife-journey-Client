@@ -2,8 +2,10 @@ import React from "react";
 import cover from "../../assets/images/GALLERY.png";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import useTitle from "../../hooks/useTitle";
 
 const Gallery = () => {
+  useTitle('Error')
   const gallery = [
     {
       id: 1,
@@ -36,6 +38,22 @@ const Gallery = () => {
     {
       id: 8,
       img: "https://bn.observerbd.com/2021/06/19/observerbd.com_1624121090.jpg",
+    },
+    {
+      id: 9,
+      img: "https://i.ytimg.com/vi/mPkxwsXih2g/maxresdefault.jpg",
+    },
+    {
+      id: 10,
+      img: "https://tourgroupbd.com/upload/event/1653457778_event_image1.jpg",
+    },
+    {
+      id: 11,
+      img: "https://techoffer247.com/wp-content/uploads/2022/09/sadaa.jpeg",
+    },
+    {
+      id: 12,
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/The_Beauty_of_Kuakata_Sea_Beach.jpg/1200px-The_Beauty_of_Kuakata_Sea_Beach.jpg",
     },
   ];
   console.log(gallery);

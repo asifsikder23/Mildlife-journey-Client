@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import image from "../../../assets/images/my-bg.png";
+import useTitle from "../../../hooks/useTitle";
 
 const About = () => {
+  useTitle('About')
   return (
     <div id="about">
       <div className="hero min-h-screen bg-base-200">
