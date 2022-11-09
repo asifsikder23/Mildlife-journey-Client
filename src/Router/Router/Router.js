@@ -8,8 +8,10 @@ import Gallery from "../../Pages/Gallery/Gallery";
 import Home from "../../Pages/Home/Home";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import Login from "../../Pages/Login/Login";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Packages from "../../Pages/Packages/Packages";
 import Signup from "../../Pages/Signup/Signup";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -31,7 +33,11 @@ const router = createBrowserRouter([
         },
         {
             path:'/addpackage',
-            element: <Addpkg></Addpkg>,
+            element: <PrivateRoute><Addpkg></Addpkg></PrivateRoute>,
+        },
+        {
+            path:'/myreviews',
+            element: <PrivateRoute><MyReviews></MyReviews> </PrivateRoute>,
         },
         {
             path:'/serviceDetails/:id',

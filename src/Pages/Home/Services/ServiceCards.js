@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServiceCards = (props) => {
-    const { img, title, shortDes, duration, review } = props.pack;
+    const { img, title, shortDes, duration, review, _id } = props.pack;
     return (
         
-        <div className="card w-80 bg-base-100 shadow-xl text-black">
+        <div className="card px-5 md:w-96 bg-base-100 shadow-xl text-black mt-4">
         <figure>
           <img src={img} alt="Shoes" />
         </figure>
@@ -19,7 +19,7 @@ const ServiceCards = (props) => {
             <div className="badge badge-outline  text-amber-700">{review}<i class="fa-solid fa-star text-amber-600"></i></div>
           </div>
         </div>
-        <Link to={`/serviceDetails/`} className="btn btn-primary rounded-none rounded-b-lg">View More Details</Link>
+        <Link to={`/serviceDetails/${_id}`} className="btn btn-primary rounded-none rounded-b-lg">View More Details</Link>
       </div>
         
     );

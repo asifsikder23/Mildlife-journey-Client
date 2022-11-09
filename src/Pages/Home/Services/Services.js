@@ -22,7 +22,7 @@ const Services = () => {
         The journey of a thousand miles begins with a single step.
         </p>
       </div>
-      <div className="flex flex-col-3 justify-center gap-14 mt-10">
+      <div className="md:flex md:flex-col-3 justify-center md:gap-14 md:mt-10">
       {inf.map((pack) => (
         <ServiceCards
         key={pack.key}
