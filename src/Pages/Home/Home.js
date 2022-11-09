@@ -5,6 +5,8 @@ import Banner from './Banner/Banner';
 import Destinations from './Destinations/Destinations';
 import Services from './Services/Services';
 import Stats from './Stats/Stats';
+import VideoBanner from './Video/VideoBanner';
+
 
 
 const Home = () => {
@@ -12,6 +14,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <VideoBanner></VideoBanner>
             <Services></Services>
             <Destinations></Destinations>
             <Stats></Stats>

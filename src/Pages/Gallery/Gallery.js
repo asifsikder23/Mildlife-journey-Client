@@ -5,7 +5,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import useTitle from "../../hooks/useTitle";
 
 const Gallery = () => {
-  useTitle('Error')
+  useTitle('Gallery')
   const gallery = [
     {
       id: 1,

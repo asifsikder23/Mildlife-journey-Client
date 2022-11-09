@@ -45,6 +45,7 @@ const Login = () => {
      login(email, password)
      .then(result =>{
        const user = result.user;
+       navigate(from,{replace:true})
        console.log(user);
        Swal.fire({
          position: 'top-end',

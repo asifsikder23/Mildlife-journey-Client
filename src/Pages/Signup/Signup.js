@@ -1,44 +1,43 @@
 import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/UserContext";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import useTitle from "../../hooks/useTitle";
 
-
 const Signup = () => {
-  useTitle('SignUp')
-  const {googleSignIn, gitSignIn, auth, createUser} = useContext(AuthContext)
-  const navigate = useNavigate()
-  const location = useLocation()
+  useTitle("SignUp");
+
+  const { googleSignIn, gitSignIn, auth, createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const handleGoogleLogIn =()=>{
+  const handleGoogleLogIn = () => {
     googleSignIn()
-    .then(result => {
-      const user = result.user;
-      
-      navigate(from,{replace:true})
-    })
-    .catch(error =>{
-      console.error('error: ', error)
-    })
-  }
-  const handleGitLogIn =()=>{
+      .then((result) => {
+        const user = result.user;
+
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error("error: ", error);
+      });
+  };
+  const handleGitLogIn = () => {
     gitSignIn()
-    .then(result => {
-      const user = result.user;
-      
-      navigate(from,{replace:true})
-    })
-    .catch(error =>{
-      console.error('error: ', error)
-    })
-  }
+      .then((result) => {
+        const user = result.user;
 
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error("error: ", error);
+      });
+  };
 
-  const handleSignUp = event=>{
+  const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -47,32 +46,32 @@ const Signup = () => {
     const password = form.password.value;
 
     createUser(email, password)
-    .then(result =>{
-      const user = result.user;
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'SignUp Successfully',
-        showConfirmButton: false,
-        timer: 1500
+      .then((result) => {
+        const user = result.user;
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "SignUp Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        updateUser(name, photo);
+        console.log(user);
       })
-      updateUser(name, photo);
-      console.log(user);
+      .catch((err) => console.error(err));
+  };
+  const updateUser = (name, photo) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
     })
-    .catch((err) => console.error(err));
-  }
-  const updateUser =(name, photo)=>{
-    updateProfile(auth.currentUser,{
-        displayName:name,
-        photoURL:photo
-    })
-    .then(()=>{
-        console.log('display name updated');
-    })
-    .catch(error=>{
-        console.error('error',error);
-    })
-}
+      .then(() => {
+        console.log("display name updated");
+      })
+      .catch((error) => {
+        console.error("error", error);
+      });
+  };
   return (
     <div>
       <div className="">
@@ -80,7 +79,8 @@ const Signup = () => {
           <div className="w-1/2">
             <img
               src="https://cdn.dribbble.com/users/277921/screenshots/4223608/gw-dribbble.gif"
-              className="rounded-lg" alt=""
+              className="rounded-lg"
+              alt=""
             />
           </div>
           <div className="md:w-1/2 p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
@@ -89,13 +89,16 @@ const Signup = () => {
             </h2>
             <p className="text-sm text-center dark:text-gray-400">
               Already have account?
-              <Link to={'/login'} className="focus:underline hover:underline ml-3">
+              <Link
+                to={"/login"}
+                className="focus:underline hover:underline ml-3"
+              >
                 Sign in here
               </Link>
             </p>
             <div className="my-6 space-y-4">
               <button
-              onClick={handleGoogleLogIn}
+                onClick={handleGoogleLogIn}
                 aria-label="Login with Google"
                 type="button"
                 className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -110,7 +113,7 @@ const Signup = () => {
                 <p>SignUp with Google</p>
               </button>
               <button
-              onClick={handleGitLogIn}
+                onClick={handleGitLogIn}
                 aria-label="Login with GitHub"
                 role="button"
                 className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -131,15 +134,13 @@ const Signup = () => {
               <hr className="w-full dark:text-gray-400" />
             </div>
             <form
-            onSubmit={handleSignUp}
+              onSubmit={handleSignUp}
               action=""
               className="space-y-8 ng-untouched ng-pristine ng-valid"
             >
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label className="block text-sm">
-                    Name
-                  </label>
+                  <label className="block text-sm">Name</label>
                   <input
                     type="text"
                     name="name"
@@ -149,9 +150,7 @@ const Signup = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm">
-                    Photo URL
-                  </label>
+                  <label className="block text-sm">Photo URL</label>
                   <input
                     type="text"
                     name="photo"
@@ -161,9 +160,7 @@ const Signup = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="block text-sm">
-                    Email address
-                  </label>
+                  <label className="block text-sm">Email address</label>
                   <input
                     type="email"
                     name="email"
@@ -174,9 +171,7 @@ const Signup = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <label className="text-sm">
-                      Password
-                    </label>
+                    <label className="text-sm">Password</label>
                     <a
                       rel="noopener noreferrer"
                       href="#"

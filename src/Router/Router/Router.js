@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
+import Addpkg from "../../Pages/AddPkg/Addpkg";
 import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
 import Error from "../../Pages/Error/Error";
 import Gallery from "../../Pages/Gallery/Gallery";
 import Home from "../../Pages/Home/Home";
+import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import Login from "../../Pages/Login/Login";
 import Packages from "../../Pages/Packages/Packages";
 import Signup from "../../Pages/Signup/Signup";
@@ -26,6 +28,15 @@ const router = createBrowserRouter([
         {
             path:'/blog',
             element: <Blog></Blog>,
+        },
+        {
+            path:'/addpackage',
+            element: <Addpkg></Addpkg>,
+        },
+        {
+            path:'/serviceDetails/:id',
+            loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`),
+            element: <ServiceDetails></ServiceDetails>
         },
         {
             path:'/gallery',
