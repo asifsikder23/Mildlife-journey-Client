@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../Context/UserContext";
 import Swal from 'sweetalert2'
 
-const Reviews = () => {
+const Reviews = (props) => {
+  const {img, title} = props.serviceData;
+  console.log(title);
   const { user } = useContext(AuthContext);
   
   const handleReview = (event)=>{
@@ -17,9 +19,12 @@ const Reviews = () => {
       email:user.email,
       name:user.displayName,
       rating:rating,
+      img:img,
+      title:title,
       photoURL:photoURL,
       message:message
     }
+    console.log(review);
     fetch('http://localhost:5000/review',{
       method: "POST",
       headers: {'content-type':"application/json"},

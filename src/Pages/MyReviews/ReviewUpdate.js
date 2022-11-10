@@ -1,7 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const ReviewUpdate = () => {
-    
+  const updateUser = useLoaderData();
+  const [user, setUser] = useState(updateUser);
+
+  const handleUpdateUser = event => {
+    event.preventDefault();
+    console.log(user);
+    fetch(`http://localhost:5000/review/${updateUser._id}`,{
+        method:'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        if(data.modifiedCount > 0){
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Update has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
+            console.log(data);
+        }
+    })
+  };
+
+  const handleInputChange = (event) => {
+    const field = event.target.name;
+    const value = event.target.value;
+
+    const newUser = { ...user };
+    newUser[field] = value;
+    setUser(newUser);
+  };
     return (
         <div>
             <section className="dark:bg-gray-800 dark:text-gray-100">
@@ -13,7 +50,7 @@ const ReviewUpdate = () => {
                   <h1 className="my-3 text-4xl font-bold">Add Users</h1>
                 </div>
                 <form
-                //   onSubmit={handleUpdateUser}
+                  onSubmit={handleUpdateUser}
                   action=""
                   className="space-y-12 ng-untouched ng-pristine ng-valid"
                 >
@@ -21,7 +58,7 @@ const ReviewUpdate = () => {
                     <div>
                       <p className="block mb-2 text-sm">Rating</p>
                       <input
-                        // onChange={handleInputChange}
+                        onChange={handleInputChange}
                         defaultValue=""
                         type="text"
                         name="rating"
@@ -33,7 +70,7 @@ const ReviewUpdate = () => {
                     <div>
                       <p className="block mb-2 text-sm">Message</p>
                       <textarea
-                        // onChange={handleInputChange}
+                        onChange={handleInputChange}
                         defaultValue=""
                         type="text"
                         name="message"

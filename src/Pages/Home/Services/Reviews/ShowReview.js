@@ -14,7 +14,7 @@ const ShowReview = () => {
           <div className="flex flex-row flex-wrap-reverse justify-center mt-8">
           {data.map((userData) => (
             <ReviewCard
-            key={userData.key}
+            key={userData.id}
             userData={userData}
             ></ReviewCard>
             

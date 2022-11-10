@@ -1,9 +1,17 @@
+import { useEffect, useState } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Reviews from "./Reviews/Reviews";
 import ShowReview from "./Reviews/ShowReview";
 import ServiceDetailsInfo from "./ServiceDetailsInfo";
 
 const ServiceDetails = () => {
+  const [datas, setDatas] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/services')
+      .then((res) => res.json())
+      .then((data) => setDatas(data));
+  }, []);
+  console.log(datas);
   const gallery = [
     {
       id: 1,
@@ -89,8 +97,14 @@ const ServiceDetails = () => {
           </h1>
 
           <ShowReview></ShowReview>
-          
-          <Reviews></Reviews>
+          {
+            datas.map((serviceData) => (
+              <Reviews
+              key={serviceData.id}
+              serviceData={serviceData}
+              ></Reviews>
+            ))
+          }
           </div>
       </section>
         </div>
