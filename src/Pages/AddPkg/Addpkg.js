@@ -32,14 +32,13 @@ const Addpkg = () => {
   }
   return (
     <div>
-      <div className="hero">
-        <div className="hero-content flex-col lg:flex-row w-full">
+      <div className="md:hero">
+        <div className="md:hero-content md:flex-col lg:flex-row">
           <img
             src="https://i.pinimg.com/originals/5d/3e/94/5d3e9462d91d43e0e76427d8b613e8c1.gif"
-            className="max-w-sm rounded-lg shadow-2xl"
             alt=""
           />
-          <div className="w-1/2">
+          <div className="md:w-1/2 mx-5">
             <h1 className="text-5xl font-bold my-5 text-center">Add Packages</h1>
 
 
@@ -71,7 +70,7 @@ const Addpkg = () => {
                 <input
                   type="text"
                   name='duration'
-                  placeholder="Leroy Jenkins"
+                  placeholder="* Days * Night"
                   className="block w-full h-10 mt-3 text-center border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
                 />
               </label>
@@ -80,7 +79,7 @@ const Addpkg = () => {
                 <input
                   type="text"
                   name="amount"
-                  placeholder="Leroy Jenkins"
+                  placeholder="$$$"
                   className="block w-full h-10 mt-3 text-center border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
                 />
               </label>
@@ -89,7 +88,7 @@ const Addpkg = () => {
                 <input
                   type="text"
                   name="review"
-                  placeholder="Leroy Jenkins"
+                  placeholder="4.5"
                   className="block w-full h-10 mt-3 text-center border rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"
                 />
               </label>

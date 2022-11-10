@@ -6,9 +6,11 @@ import Contact from "../../Pages/Contact/Contact";
 import Error from "../../Pages/Error/Error";
 import Gallery from "../../Pages/Gallery/Gallery";
 import Home from "../../Pages/Home/Home";
+import ShowReview from "../../Pages/Home/Services/Reviews/ShowReview";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
+import ReviewUpdate from "../../Pages/MyReviews/ReviewUpdate";
 import Packages from "../../Pages/Packages/Packages";
 import Signup from "../../Pages/Signup/Signup";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
@@ -39,6 +41,16 @@ const router = createBrowserRouter([
             path:'/myreviews',
             element: <PrivateRoute><MyReviews></MyReviews> </PrivateRoute>,
         },
+        {
+            path:'/reviews',
+            element: <ShowReview></ShowReview>,
+            loader: () => fetch('http://localhost:5000/review')
+        },
+        {
+            path:'/reviewUpdate',
+            element: <ReviewUpdate></ReviewUpdate>,
+        },
+        
         {
             path:'/serviceDetails/:id',
             loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`),

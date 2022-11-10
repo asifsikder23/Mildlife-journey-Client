@@ -10,7 +10,7 @@ const Packages = () => {
       .then((res) => res.json())
       .then((data) => setInfo(data));
   }, []);
-  console.log(info);
+  // console.log(info);
   useTitle("Packages");
   return (
     <div>
@@ -46,7 +46,7 @@ const Packages = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-5">
           {info.map((packages) => (
             <PackagesCard key={packages.key} packages={packages}></PackagesCard>
           ))}
