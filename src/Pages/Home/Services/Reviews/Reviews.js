@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../Context/UserContext";
 import Swal from 'sweetalert2'
 
-const Reviews = (props) => {
-  const {img, title} = props.serviceData;
-  console.log(title);
+const Reviews = () => {
+  
   const { user } = useContext(AuthContext);
   
   const handleReview = (event)=>{
@@ -19,8 +18,6 @@ const Reviews = (props) => {
       email:user.email,
       name:user.displayName,
       rating:rating,
-      img:img,
-      title:title,
       photoURL:photoURL,
       message:message
     }

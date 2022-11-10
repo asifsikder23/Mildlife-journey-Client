@@ -97,14 +97,7 @@ const ServiceDetails = () => {
           </h1>
 
           <ShowReview></ShowReview>
-          {
-            datas.map((serviceData) => (
-              <Reviews
-              key={serviceData.id}
-              serviceData={serviceData}
-              ></Reviews>
-            ))
-          }
+          <Reviews></Reviews>
           </div>
       </section>
         </div>
