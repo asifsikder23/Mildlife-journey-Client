@@ -3,14 +3,15 @@ import { AuthContext } from "../../../../Context/UserContext";
 
 const Reviews = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   const handleReview = (event)=>{
+    event.preventDefault();
     const form = event.target;
     const rating = form.rating.value;
     const photoURL = form.photoURL.value;
     const message = form.message.value;
     form.reset();
+    console.log(rating, photoURL, message);
   }
   return (
     <div>
@@ -76,8 +77,11 @@ const Reviews = () => {
           </div>
           </div>
 
-          <div className="flex">
-          <div className="flex flex-col w-full p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100 w-1/2">
+          <div className="md:flex md:flex-row-reverse">
+          <div className="">
+            <img src="https://i.giphy.com/media/lMl2tZmYHhrJHvY4rP/giphy.webp" alt="" />
+          </div>
+          <div className="p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100 md:w-1/2">
             <div className="flex flex-col items-center w-full">
               <h2 className="text-3xl font-semibold text-center">
                 Your opinion matters!
@@ -133,10 +137,6 @@ const Reviews = () => {
                 Maybe later
               </a>
             </div>
-          </div>
-          
-          <div className="w-1/2">
-            <img src="https://i.giphy.com/media/lMl2tZmYHhrJHvY4rP/giphy.webp" alt="" />
           </div>
           </div>
         </div>

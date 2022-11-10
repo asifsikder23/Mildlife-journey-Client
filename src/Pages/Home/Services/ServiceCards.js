@@ -5,7 +5,7 @@ const ServiceCards = (props) => {
     const { img, title, shortDes, duration, review, _id } = props.pack;
     return (
         
-        <div className="card px-5 md:w-96 bg-base-100 shadow-xl text-black mt-4">
+        <div className="card md:w-80 bg-base-100 shadow-xl text-black mt-4">
         <figure>
           <img src={img} alt="Shoes" />
         </figure>

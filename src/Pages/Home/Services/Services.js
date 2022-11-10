@@ -11,7 +11,7 @@ const Services = () => {
       .then(data => setInf(data));
   },[]);
   return (
-    <div>
+    <div className="bg-slate-200 p-10 mt-10">
       <div>
         <p className="text-center text-[#FF3811] font-bold text-xl mt-10 md:mt-15 container mx-auto">
           Packages
