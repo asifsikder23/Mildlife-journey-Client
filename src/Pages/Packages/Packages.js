@@ -1,42 +1,40 @@
-
 import React, { useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
 import PackagesCard from "./PackagesCard";
-import { CirclesWithBar } from  'react-loader-spinner'
+import { CirclesWithBar } from "react-loader-spinner";
 
 const Packages = () => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [info, setInfo] = useState([]);
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => {
-        
-        setInfo(data)
-        setLoading(false)
+        setInfo(data);
+        setLoading(false);
       });
   }, []);
   // console.log(info);
   useTitle("Packages");
   return (
     <div>
-      {
-        loading && <h2>
+      {loading && (
+        <h2>
           <CirclesWithBar
-  height="100"
-  width="100"
-  color="#4fa94d"
-  wrapperStyle={{}}
-  wrapperClass=""
-  visible={true}
-  outerCircleColor=""
-  innerCircleColor=""
-  barColor=""
-  ariaLabel='circles-with-bar-loading'
-/>
+            height="100"
+            width="100"
+            color="#4fa94d"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            outerCircleColor=""
+            innerCircleColor=""
+            barColor=""
+            ariaLabel="circles-with-bar-loading"
+          />
         </h2>
-      }
+      )}
       <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img
