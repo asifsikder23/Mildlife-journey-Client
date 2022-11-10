@@ -32,7 +32,7 @@ const ReviewUpdate = () => {
   };
 
   const handleInputChange = (event) => {
-    const field = event.target.name;
+    const field = event.target.rating;
     const value = event.target.value;
 
     const newUser = { ...user };
@@ -60,7 +60,7 @@ const ReviewUpdate = () => {
                       <input
                         onChange={handleInputChange}
                         defaultValue=""
-                        type="text"
+                        type="number"
                         name="rating"
                         id="rating"
                         placeholder="* stars"

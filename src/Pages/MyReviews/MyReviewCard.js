@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const MyReviewCard = (props) => {
   console.log(props);
-  const { name, photoURL, email, rating, message, img, title } = props.reviews;
+  const { name, photoURL, email, rating, message, _id } = props.reviews;
   const [displayUsers, setDisplayUsers] = useState(props.reviews)
   
 
@@ -70,7 +70,7 @@ const MyReviewCard = (props) => {
             />
             <div className="bg-white w-full p-4">
               <p className="text-indigo-500 text-2xl font-medium">
-                {title}
+                {/* {title} */}
               </p>
               <p className="text-gray-600 text-md">
                 {message}
@@ -93,7 +93,7 @@ const MyReviewCard = (props) => {
                 </div>
               </div>
               <div className="flex justify-end">
-              <Link to={'/reviewUpdate'}>
+              <Link to={`/reviewUpdate/${_id}`}>
               <i className="fa-solid fa-pen-to-square mr-4"></i>
               </Link>
               <button
