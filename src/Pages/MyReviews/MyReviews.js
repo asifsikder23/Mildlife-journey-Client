@@ -11,7 +11,7 @@ const MyReviews = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`,{
+    fetch(`https://mildlife-journey-server-asifsikder23.vercel.app/reviews?email=${user?.email}`,{
       headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
     })
       .then((res) => res.json())

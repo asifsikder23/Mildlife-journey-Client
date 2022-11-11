@@ -35,7 +35,7 @@ const MyReviewCard = (props) => {
           'Your file has been deleted.',
           'success',
 
-          fetch(`http://localhost:5000/reviews/${props.reviews._id}`,{
+          fetch(`https://mildlife-journey-server-asifsikder23.vercel.app/reviews/${props.reviews._id}`,{
             method: 'DELETE'
           })
           .then(res => res.json())

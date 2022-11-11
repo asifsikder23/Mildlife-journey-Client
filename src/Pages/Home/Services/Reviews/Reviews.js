@@ -28,7 +28,7 @@ const Reviews = ({serviceId, serviceTitle, serviceImg}) => {
       serviceTitle:serviceTitle
     }
     console.log(review);
-    fetch('http://localhost:5000/review',{
+    fetch('https://mildlife-journey-server-asifsikder23.vercel.app/review',{
       method: "POST",
       headers: {'content-type':"application/json"},
       body:JSON.stringify(review)

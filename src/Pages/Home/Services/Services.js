@@ -9,7 +9,7 @@ const Services = () => {
   const [inf, setInf] = useState([]);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/limit")
+    fetch("https://mildlife-journey-server-asifsikder23.vercel.app/limit")
       .then((res) => res.json())
       .then((data) => {
         setInf(data)

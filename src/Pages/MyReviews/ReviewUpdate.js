@@ -13,7 +13,7 @@ const ReviewUpdate = () => {
     const massage = event.target.massage.value;
     const rating = event.target.rating.value;
     console.log(massage, rating);
-    fetch(`http://localhost:5000/reviews/${updateUser[0]._id}`, {
+    fetch(`https://mildlife-journey-server-asifsikder23.vercel.app/reviews/${updateUser[0]._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

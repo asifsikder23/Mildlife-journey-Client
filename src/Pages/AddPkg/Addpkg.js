@@ -14,7 +14,7 @@ const Addpkg = () => {
     const description = form.description.value;
     form.reset();
     const packages = {title:title, img:photo, duration:duration, cost:amount, des:description, review:review, shortDes:shortDes}
-    fetch('http://localhost:5000/services',{
+    fetch('https://mildlife-journey-server-asifsikder23.vercel.app/services',{
       method: "POST",
       headers: {'content-type':"application/json"},
       body:JSON.stringify(packages)

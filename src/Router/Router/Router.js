@@ -48,12 +48,12 @@ const router = createBrowserRouter([
         {
             path:'/reviewUpdate/:id',
             element: <ReviewUpdate></ReviewUpdate>,
-            loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+            loader: ({params}) => fetch(`https://mildlife-journey-server-asifsikder23.vercel.app/review/${params.id}`)
         },
         
         {
             path:'/serviceDetails/:id',
-            loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`),
+            loader: ({params})=>fetch(`https://mildlife-journey-server-asifsikder23.vercel.app/services/${params.id}`),
             element: <ServiceDetails></ServiceDetails>
         },
         {
