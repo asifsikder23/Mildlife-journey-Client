@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
 import PackagesCard from "./PackagesCard";
-import { CirclesWithBar } from "react-loader-spinner";
+import { CirclesWithBar, ThreeDots } from "react-loader-spinner";
 
 const Packages = () => {
   const [loading, setLoading] = useState(true);
@@ -15,26 +15,9 @@ const Packages = () => {
         setLoading(false);
       });
   }, []);
-  // console.log(info);
   useTitle("Packages");
   return (
     <div>
-      {loading && (
-        <h2>
-          <CirclesWithBar
-            height="100"
-            width="100"
-            color="#4fa94d"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-            outerCircleColor=""
-            innerCircleColor=""
-            barColor=""
-            ariaLabel="circles-with-bar-loading"
-          />
-        </h2>
-      )}
       <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img
@@ -66,6 +49,20 @@ const Packages = () => {
             </div>
           </div>
         </div>
+        {loading && (
+          <h2 className="flex justify-center my-10">
+            <ThreeDots
+              height="80"
+              width="80"
+              radius="9"
+              color="#4fa94d"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              wrapperClassName=""
+              visible={true}
+            />
+          </h2>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-5">
           {info.map((packages) => (

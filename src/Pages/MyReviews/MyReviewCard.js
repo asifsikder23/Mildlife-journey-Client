@@ -4,10 +4,9 @@ import Swal from 'sweetalert2';
 
 const MyReviewCard = (props) => {
   console.log(props);
-  const { name, photoURL, email, rating, message, _id } = props.reviews;
+  const { name, photoURL, email, rating, massage, _id } = props.reviews;
   const [displayUsers, setDisplayUsers] = useState(props.reviews)
   
-
   const handleDelete =_id =>{
     console.log("deleting id", props.reviews._id);
 
@@ -19,7 +18,6 @@ const MyReviewCard = (props) => {
       },
       buttonsStyling: true
     })
-    
     swalWithBootstrapButtons.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -61,7 +59,7 @@ const MyReviewCard = (props) => {
   }
   return (
     <div className="p-10">
-      <div className="flex flex-wrap place-items-center h-screen">
+      <div className="flex flex-wrap place-items-center">
         <div className="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-5 hover:shadow-2xl rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
             <img
               alt="blog photo"
@@ -73,7 +71,7 @@ const MyReviewCard = (props) => {
                 {/* {title} */}
               </p>
               <p className="text-gray-600 text-md">
-                {message}
+                {massage}
               </p>
               <div className="flex flex-wrap justify-starts items-center py-3 border-b-2 text-xs text-white font-medium">
                 <span className="m-1 px-2 py-1 rounded bg-indigo-500">{rating} <i className="fa-solid fa-star"></i></span>

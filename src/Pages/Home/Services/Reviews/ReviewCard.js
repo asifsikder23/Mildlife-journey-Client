@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewCard = (props) => {
   console.log(props);
-    const { name, photoURL, email, rating, message } = props.userData;
+    const { name, photoURL, email, rating, massage } = props.userData;
   
     return (
         <div>
@@ -17,7 +17,7 @@ const ReviewCard = (props) => {
                   {name}
                 </p>
                 <p>{email}</p>
-                <p>{message}</p>
+                <p>{massage}</p>
               </div>
               <div className="flex items-center justify-center p-3 space-x-3 border-t-2 bg-slate-800 rounded-t-2xl">
                 <i className="fa-regular fa-star text-amber-500">

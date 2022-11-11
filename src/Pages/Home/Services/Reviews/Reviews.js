@@ -12,14 +12,14 @@ const Reviews = () => {
     const form = event.target;
     const rating = form.rating.value;
     const photoURL = form.photoURL.value;
-    const message = form.message.value;
+    const massage = form.massage.value;
     form.reset();
     const review = {
       email:user.email,
       name:user.displayName,
       rating:rating,
       photoURL:photoURL,
-      message:message
+      massage:massage
     }
     console.log(review);
     fetch('http://localhost:5000/review',{
@@ -78,7 +78,7 @@ const Reviews = () => {
                 </div>
 
                 <textarea
-                name="message"
+                name="massage"
                   type="text"
                   rows="3"
                   placeholder="Message..."
