@@ -5,15 +5,16 @@ import Swal from "sweetalert2";
 const ReviewUpdate = () => {
   const updateUser = useLoaderData();
   const [user, setUser] = useState(updateUser);
-  console.log(updateUser[0]._id);
+
+  console.log(updateUser);
 
   const handleUpdateUser = (event) => {
     event.preventDefault();
     const massage = event.target.massage.value;
     const rating = event.target.rating.value;
     console.log(massage, rating);
-    fetch(`http://localhost:5000/review/${updateUser[0]._id}`, {
-      method: "PUT",
+    fetch(`http://localhost:5000/reviews/${updateUser[0]._id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },

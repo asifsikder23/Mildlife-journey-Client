@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../Context/UserContext";
 import Swal from 'sweetalert2'
 
-const Reviews = () => {
-  
+const Reviews = ({serviceId, serviceTitle, serviceImg}) => {
+  console.log(serviceId);
   const { user } = useContext(AuthContext);
+
+ 
   
   const handleReview = (event)=>{
     event.preventDefault();
@@ -14,12 +16,16 @@ const Reviews = () => {
     const photoURL = form.photoURL.value;
     const massage = form.massage.value;
     form.reset();
+
     const review = {
       email:user.email,
       name:user.displayName,
       rating:rating,
       photoURL:photoURL,
-      massage:massage
+      massage:massage,
+      serviceId:serviceId,
+      serviceImg:serviceImg,
+      serviceTitle:serviceTitle
     }
     console.log(review);
     fetch('http://localhost:5000/review',{

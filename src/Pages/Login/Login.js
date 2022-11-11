@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { AuthContext } from "../../Context/UserContext";
 import useTitle from "../../hooks/useTitle";
 
@@ -19,6 +19,16 @@ const Login = () => {
         const user = result.user;
         
         navigate(from,{replace:true})
+        fetch('http://localhost:5000/jwt',{
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify({name: user.displayName,email:user.email})
+         }).then(res => res.json())
+         .then(data => {
+          console.log(data);
+          localStorage.setItem('token',data.token)
+         })
+         .catch(err => console.log(err))
       })
       .catch((error) => {
         console.error("error: ", error);
@@ -30,6 +40,16 @@ const Login = () => {
         const user = result.user;
         
         navigate(from,{replace:true})
+        fetch('http://localhost:5000/jwt',{
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify({name: user.displayName,email:user.email})
+         }).then(res => res.json())
+         .then(data => {
+          console.log(data);
+          localStorage.setItem('token',data.token)
+         })
+         .catch(err => console.log(err))
       })
       .catch((error) => {
         console.error("error: ", error);
@@ -53,7 +73,18 @@ const Login = () => {
          title: 'Log in Success',
          showConfirmButton: false,
          timer: 1500
+         
        })
+       fetch('http://localhost:5000/jwt',{
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({name: user.displayName,email:user.email})
+       }).then(res => res.json())
+       .then(data => {
+        console.log(data);
+        localStorage.setItem('token',data.token)
+       })
+       .catch(err => console.log(err))
      })
      .catch(err =>{
        console.error(err);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import Reviews from "./Reviews/Reviews";
-import ShowReview from "./Reviews/ShowReview";
+
+
 import ServiceDetailsInfo from "./ServiceDetailsInfo";
 
 const ServiceDetails = () => {
@@ -84,23 +84,6 @@ const ServiceDetails = () => {
               needed) for security. They will help you for the entire trip.
             </li>
           </div>
-        </div>
-
-        <div>
-        <section className="py-6 dark:bg-gray-800 dark:text-gray-100">
-        <div className="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
-          <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
-            Reviews
-          </p>
-          <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl">
-            A good, sympathetic review is always a wonderful surprise.
-          </h1>
-
-          <ShowReview></ShowReview>
-          
-          <Reviews></Reviews>
-          </div>
-      </section>
         </div>
       </div>
   );

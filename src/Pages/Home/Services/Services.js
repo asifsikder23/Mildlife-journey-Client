@@ -18,8 +18,21 @@ const Services = () => {
   }, []);
   return (
     <div className="bg-slate-200 p-10 mt-10">
+      
+      <div>
+        <p className="text-center text-[#FF3811] font-bold text-xl mt-10 md:mt-15 container mx-auto">
+          Packages
+        </p>
+        <p className="text-5xl font-bold text-center mt-5">
+          Most Desire Packages
+        </p>
+
+        <p className="mt-5 text-center text-[#737373]">
+          The journey of a thousand miles begins with a single step.
+        </p>
+      </div>
       {loading && (
-        <h2>
+        <h2 className="flex justify-center my-10">
           <CirclesWithBar
             height="100"
             width="100"
@@ -34,18 +47,6 @@ const Services = () => {
           />
         </h2>
       )}
-      <div>
-        <p className="text-center text-[#FF3811] font-bold text-xl mt-10 md:mt-15 container mx-auto">
-          Packages
-        </p>
-        <p className="text-5xl font-bold text-center mt-5">
-          Most Desire Packages
-        </p>
-
-        <p className="mt-5 text-center text-[#737373]">
-          The journey of a thousand miles begins with a single step.
-        </p>
-      </div>
       <div className="md:flex md:flex-col-3 justify-center md:gap-14 md:mt-10">
         {inf.map((pack) => (
           <ServiceCards key={pack.key} pack={pack}></ServiceCards>

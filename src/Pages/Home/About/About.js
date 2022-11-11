@@ -10,6 +10,19 @@ const About = () => {
       <div className="absolute bottom-0 right-0 mb-4 mr-4 z-10">
         <div>
           <a
+            title="Follow me on facebook"
+            href="https://www.facebook.com/asifullahsikder"
+            className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
+            
+          >
+            <img
+              className="object-cover object-center w-full h-full rounded-full"
+              src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png"
+            />
+          </a>
+        </div>
+        <div>
+          <a
             title="Follow me on twitter"
             href="https://www.twitter.com/asif_sikder23"
             className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"

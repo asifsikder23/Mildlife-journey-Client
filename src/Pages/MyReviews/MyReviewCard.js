@@ -4,8 +4,10 @@ import Swal from 'sweetalert2';
 
 const MyReviewCard = (props) => {
   console.log(props);
-  const { name, photoURL, email, rating, massage, _id } = props.reviews;
+  const { name, photoURL, email, rating, massage, _id, serviceTitle, serviceImg } = props.reviews;
   const [displayUsers, setDisplayUsers] = useState(props.reviews)
+
+  console.log(props);
   
   const handleDelete =_id =>{
     console.log("deleting id", props.reviews._id);
@@ -63,12 +65,12 @@ const MyReviewCard = (props) => {
         <div className="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:-translate-y-5 hover:shadow-2xl rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
             <img
               alt="blog photo"
-              src={photoURL}
+              src={serviceImg}
               className="max-h-40 w-full object-cover"
             />
             <div className="bg-white w-full p-4">
               <p className="text-indigo-500 text-2xl font-medium">
-                {/* {title} */}
+                {serviceTitle}
               </p>
               <p className="text-gray-600 text-md">
                 {massage}
