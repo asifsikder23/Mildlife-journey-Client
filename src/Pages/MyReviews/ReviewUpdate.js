@@ -44,7 +44,7 @@ const ReviewUpdate = () => {
             <div className="pr-5">
               <div className="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:dark:bg-violet-400">
                 <div className="mb-8 text-center">
-                  <h1 className="my-3 text-4xl font-bold">Add Users</h1>
+                  <h1 className="my-3 text-4xl font-bold">Update Review</h1>
                 </div>
                 <form
                   onSubmit={handleUpdateUser}
@@ -81,7 +81,7 @@ const ReviewUpdate = () => {
                         type="submit"
                         className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900"
                       >
-                        Update User
+                        Update Review
                       </button>
                     </div>
                   </div>

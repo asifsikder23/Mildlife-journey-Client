@@ -56,6 +56,7 @@ const ServiceDetailsInfo = () => {
           </div>
       </section>
         </div>
+        
         <ShowReview serviceId={service._id}></ShowReview>
         <Reviews serviceId={service._id}
         serviceImg={service.img}
