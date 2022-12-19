@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { AuthContext } from "../../Context/UserContext";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import useTitle from "../../hooks/useTitle";
+import { AuthContext } from "../../Context/UserContext";
 
 const Signup = () => {
   useTitle("SignUp");

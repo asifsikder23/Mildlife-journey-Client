@@ -40,7 +40,7 @@ Destination!</p>
           <img
             alt=""
             className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square photo"
-            src="https://www.muktomon.net/upload/news/1628776726.jpg"
+            src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYXZlbHxlbnwwfHwwfHw%3D&w=1000&q=80"
           />
           <img
             alt=""
