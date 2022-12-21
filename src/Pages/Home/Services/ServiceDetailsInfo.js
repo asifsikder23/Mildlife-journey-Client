@@ -57,10 +57,17 @@ const ServiceDetailsInfo = () => {
       </section>
         </div>
         
+        <div className='flex justify-between'>
+        <div className=''>
         <ShowReview serviceId={service._id}></ShowReview>
+        </div>
+
+        <div className=''>
         <Reviews serviceId={service._id}
         serviceImg={service.img}
         serviceTitle={service.title}></Reviews>
+        </div>
+        </div>
         </div>
     );
 };

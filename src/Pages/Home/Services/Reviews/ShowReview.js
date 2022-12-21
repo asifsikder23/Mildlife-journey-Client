@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import ReviewCard from './ReviewCard';
+import React, { useEffect, useState } from "react";
+import ReviewCard from "./ReviewCard";
 
-const ShowReview = ({serviceId}) => {
-    const [data, setData] = useState([]);
-    
+const ShowReview = ({ serviceId }) => {
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    fetch(`https://mildlife-journey-server-asifsikder23.vercel.app/reviews/${serviceId}`)
+    fetch(
+      `https://mildlife-journey-server-asifsikder23.vercel.app/reviews/${serviceId}`
+    )
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
-    return (
-        <div>
-            <div className="md:flex md:flex-col-3">
-          <div className="flex flex-row flex-wrap-reverse justify-center mt-8">
+  return (
+    <div>
+      
+        <div className="grid grid-cols-1 w-full gap-5 ">
           {data?.map((userData) => (
-            <ReviewCard
-            key={userData.id}
-            userData={userData}
-            ></ReviewCard>
-            
+            <ReviewCard key={userData.id} userData={userData}></ReviewCard>
           ))}
-          </div>
-          </div>
         </div>
-    );
+    
+    </div>
+  );
 };
 
 export default ShowReview;

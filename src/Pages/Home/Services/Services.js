@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./Services.css";
+import { CirclesWithBar } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import ServiceCards from "./ServiceCards";
-import { CirclesWithBar } from "react-loader-spinner";
+import "./Services.css";
 
 const Services = () => {
   const [loading, setLoading] = useState(true);
@@ -38,7 +38,7 @@ const Services = () => {
             width="100"
             color="#4fa94d"
             wrapperStyle={{}}
-            wrapperClass=""
+            wrapperclassName=""
             visible={true}
             outerCircleColor=""
             innerCircleColor=""

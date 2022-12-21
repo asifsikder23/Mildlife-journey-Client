@@ -44,14 +44,11 @@ const Reviews = ({serviceId, serviceTitle, serviceImg}) => {
     })
   }
   return (
-    <div>
+    <div className="my-20">
           {
             user ?
-            <div className="md:flex md:flex-row-reverse">
-          <div className="">
-            <img src="https://i.giphy.com/media/lMl2tZmYHhrJHvY4rP/giphy.webp" alt="" />
-          </div>
-          <div className="p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100 md:w-1/2">
+            
+          <div className="p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
             <div className="flex flex-col items-center w-full">
               <h2 className="text-3xl font-semibold text-center">
                 Your opinion matters!
@@ -109,7 +106,7 @@ const Reviews = ({serviceId, serviceTitle, serviceImg}) => {
               </a>
             </div>
           </div>
-          </div>
+          
           :
           <Link to={'/login'} className="btn btn-primary">Please Log in first for Review</Link>
           }

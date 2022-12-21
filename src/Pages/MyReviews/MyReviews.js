@@ -34,7 +34,7 @@ const MyReviews = () => {
             width="100"
             color="#4fa94d"
             wrapperStyle={{}}
-            wrapperClass=""
+            wrapperclassName=""
             visible={true}
             outerCircleColor=""
             innerCircleColor=""

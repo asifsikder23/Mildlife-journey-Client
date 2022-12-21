@@ -7,12 +7,14 @@ const About = () => {
   useTitle('About')
   return (
     <div id="about">
-      <div className="absolute bottom-0 right-0 mb-4 mr-4 z-10">
+      <div className="fixed bottom-0 right-0 mb-4 mr-4 z-10">
         <div>
           <a
-            title="Follow me on facebook"
-            href="https://www.facebook.com/asifullahsikder"
-            className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
+          target="_blank"
+          rel="noreferrer"
+          title="Follow me on facebook"
+          href="https://www.facebook.com/asifullahsikder"
+          className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
             
           >
             <img
@@ -23,9 +25,11 @@ const About = () => {
         </div>
         <div>
           <a
-            title="Follow me on twitter"
-            href="https://www.twitter.com/asif_sikder23"
-            className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
+          target="_blank"
+          rel="noreferrer"
+          title="Follow me on twitter"
+          href="https://www.twitter.com/asif_sikder23"
+          className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
             
           >
             <img
